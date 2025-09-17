@@ -6,7 +6,7 @@
 
 ### **1. Description du projet**
 
-EatSmart est une application qui sert a gerer la restauration d'une pizzeria. Elle prend en charge les commandes du clients et l'historique des commandes ainsi que le processus dela commande. De plus, une fos que la commande est prete celle-ci alerte le client. 
+EatSmart est une application qui sert à gérer la restauration d'une pizzeria. Elle prend en charge les commandes du client et l'historique des commandes ainsi que le processus de la commande. De plus, une fois que la commande est prête, celle-ci alerte le client.
 
 <img src="./assets/img/Schema architecture eatsmart.png">
 
@@ -18,17 +18,17 @@ EatSmart est une application qui sert a gerer la restauration d'une pizzeria. El
 
 - **Fonctionnalité 1 :**  
  
-  Consultation et recherche des plats proposés par la pizerria.
+  Consultation et recherche des plats proposés par la pizerria pour les clients. Chaque plats est accompagné de sa description, du prix ainsi que des ingrédients utiliser.
   
 - **Fonctionnalité 2 :**  
 
-  -                                                                                                                                                       
+  - Personnalisation de la commandes, le clients peut choisir les plats qui veut commander.                                                                                                                                                  
   
 #### **3.2 Backend (eatSmartBack)**
 
 - **Fonctionnalité 1 :**  
   
-  - Gestion des utilisateurs (clients, connexions,etc...)                                                   
+  - Gestion des commandes des clients (commandes en préparation , commande à livrer et des commandes deja livrés).                                                 
   
 - **Fonctionnalité 2 :**  
  
