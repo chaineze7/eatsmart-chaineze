@@ -1,6 +1,6 @@
 # **Projet : EatSmart**
 
-**Etudiants :** (Nom des étudiants)
+**Etudiants :** Chaineze
 
 ---
 
