@@ -6,7 +6,9 @@
 
 ### **1. Description du projet**
 
-(Complétez ici avec la description du projet présentée en classe.)
+EatSmart est une application qui sert a gerer la restauration d'une pizzeria. Elle prend en charge les commandes du clients et l'historique des commandes ainsi que le processus dela commande. De plus, une fos que la commande est prete celle-ci alerte le client. 
+
+<img src="./assets/img/Schema architecture eatsmart.png">
 
 ---
 
@@ -15,25 +17,30 @@
 #### **3.1 Frontend (eatSmartFront)**
 
 - **Fonctionnalité 1 :**  
-  (Décrivez ici la première fonctionnalité du front-office.)
+ 
+  Consultation et recherche des plats proposés par la pizerria.
   
 - **Fonctionnalité 2 :**  
-  (Décrivez ici la deuxième fonctionnalité du front-office.)
+
+  -                                                                                                                                                       
   
 #### **3.2 Backend (eatSmartBack)**
 
 - **Fonctionnalité 1 :**  
-  (Décrivez ici la première fonctionnalité du back-office.)
+  
+  - Gestion des utilisateurs (clients, connexions,etc...)                                                   
   
 - **Fonctionnalité 2 :**  
-  (Décrivez ici la deuxième fonctionnalité du back-office.)
+ 
+
+  - Analyse des données(historique,etc...)
 
 ---
 
 ### **4. Technologies utilisées**
 
-- **Frontend :** (Technologies prévues)
-- **Backend :** (Technologies prévues)
-- **Base de données :** (Technologies prévues)
+- **Frontend :** HTML,CSS,JS
+- **Backend :** API
+- **Base de données :** MySQL
 
 ---
