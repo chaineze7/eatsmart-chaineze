@@ -39,12 +39,14 @@ EatSmart est une application qui sert à gérer la restauration d'une pizzeria. 
 
 ### **4. Technologies utilisées**
 
-- **Frontend :** HTML,CSS,JS
+- **Frontend :** HTML/CSS/JS
 - **Backend :** API
 - **Base de données :** MySQL
 
 
 ### **5. MCD/MLD/MPD**
+
+<img src="./assets/img/MCD_MLD_MPD.png">
 
 
 
