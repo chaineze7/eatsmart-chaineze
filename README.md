@@ -46,6 +46,8 @@ EatSmart est une application qui sert à gérer la restauration d'une pizzeria. 
 
 ### **5. MCD/MLD/MPD**
 
+<img src="./assets/img/MCD_MLD_MPD.png">
+
 
 
 
