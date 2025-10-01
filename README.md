@@ -55,12 +55,12 @@ EatSmart est une application qui sert à gérer la restauration d'une pizzeria. 
 Adresse de l'API (en local) : http://localhost/chaineze-api-eatsmart
 
 Voici les différents endpoints de l'API : 
-- `GET /article` → Afficher la liste des articles
-- `GET /article/{id}` → Afficher l'article avec l'id égal à {id}
-- `GET /categorie` → Afficher la liste des catégories
-- `GET /categorie/{id}` → Afficher la catégorie avec l'id égal à {id}
-- `GET /commande` → Afficher la liste des commandes
-- `GET /commande/{id}` → Afficher la commande avec l'id égal à {id}
+- `GET /articles` → Afficher la liste des articles
+- `GET /articles/{id}` → Afficher l'article avec l'id égal à {id}
+- `GET /categories` → Afficher la liste des catégories
+- `GET /categories/{id}` → Afficher la catégorie avec l'id égal à {id}
+- `GET /commandes` → Afficher la liste des commandes
+- `GET /commandes/{id}` → Afficher la commande avec l'id égal à {id}
 
 
 
