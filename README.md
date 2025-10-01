@@ -50,6 +50,21 @@ EatSmart est une application qui sert à gérer la restauration d'une pizzeria. 
 
 
 
+## Endpoints de l'API
+
+Adresse de l'API (en local) : http://localhost/____
+
+Voici les différents endpoints de l'API : 
+- `GET /articles` → Afficher la liste des articles
+- `GET /articles/{id}` → Afficher l'article avec l'id égal à {id}
+- `GET /categories` → Afficher la liste des catégories
+- `GET __________` → Afficher la catégorie avec l'id égal à {id}
+- `GET __________` → Afficher la liste des commandes
+- `GET __________` → Afficher la commande avec l'id égal à {id}
+
+
+
+
 
 
 
