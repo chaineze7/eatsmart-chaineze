@@ -38,10 +38,14 @@ if (empty($_GET["page"])) {
             }
             break;
         case "categories":
-            if (isset($url[1])) {
-                $categorieController->getCategorieById($url[1]);
-            } else {
-                echo $categorieController->getAllCategories();
+            if (isset($url[0])) {
+                if (isset($url[2]) && $url[2]=="articles") {
+                    $categorieController->getArticlesByCategorieById($url[1]);
+                } elseif (isset($url[1])) {
+                    $categorieController->getCategorieById($url[1]);
+                } else {
+                    echo $categorieController->getAllCategories();
+                }
             }
             break;
 
