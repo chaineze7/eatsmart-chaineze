@@ -17,7 +17,7 @@ class ArticleController
         echo json_encode($articles);
     }
 
-    public function getArticleById($idarticle)
+    public function getArticleById($idArticle)
     {
         $lignesArticle = $this->model->getDBArticleById($idArticle);
         echo  json_encode($lignesArticle);
