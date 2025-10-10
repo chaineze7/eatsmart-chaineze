@@ -55,10 +55,14 @@ if (empty($_GET["page"])) {
             break;
 
         case "commandes":
-            if (isset($url[1])) {
-                $commandeController->getCommandeById($url[1]);
-            } else {
-                echo $commandeController->getAllCommandes();
+            if (isset($url[0])) {
+                if (isset($url[2]) && $url[2]=="articles") {
+                    $commandeController->getArticlesByCommandeById($url[1]);
+                } elseif (isset($url[1])) {
+                    $commandeController->getCommandeById($url[1]);
+                } else {
+                    echo $commandeController->getAllCommandes();
+                }
             }
             break;
         
