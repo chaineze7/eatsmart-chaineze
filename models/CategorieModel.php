@@ -19,6 +19,19 @@ class CategorieModel
         $stmt = $this->pdo->query("SELECT * FROM categorie");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getDBCategorieById ($idCategorie)
+    {
+        $req = "
+            SELECT * FROM Categorie
+            WHERE id_categorie = :idCategorie
+        ";
+        $stmt = $this->pdo->prepare($req);
+        $stmt->bindValue(":idCategorie", $idCategorie, PDO::PARAM_INT);
+        $stmt->execute();
+        $categorie = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $categorie;
+    }
 }
 //$categorieModel = new CategorieModel();
 //print_r($categorieModel->getDBAllCategories());
