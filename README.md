@@ -61,6 +61,8 @@ Voici les différents endpoints de l'API :
 - `GET /categories/{id}` → Afficher la catégorie avec l'id égal à {id}
 - `GET /commandes` → Afficher la liste des commandes
 - `GET /commandes/{id}` → Afficher la commande avec l'id égal à {id}
+- 'GET /categories/{id}/articles'→ Affiche tous les articles d'une catégorie
+- 'GET /articles/{id}/commandes'→ Affiche toutes les commandes d'un article
 
 
 
