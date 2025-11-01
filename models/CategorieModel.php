@@ -47,6 +47,24 @@ class CategorieModel
         
     }
 
+    public function createDBCategorie($data) {
+        $req = "INSERT INTO categorie (id_categorie, nom)
+            VALUES (:id_categorie, :nom)";
+        $stmt = $this->pdo->prepare($req);
+
+        $stmt->bindParam(":id_categorie", $data['id_categorie'], PDO::PARAM_INT);
+        $stmt->bindParam(":nom", $data['nom'], PDO::PARAM_STR);
+        
+
+        $stmt->execute();
+
+        $categorie = $this->getDBCategorieById($data['id_categorie']);
+
+
+
+        return $categorie;
+    }
+
 }
 //$categorieModel = new CategorieModel();
 //print_r($categorieModel->getDBAllCategories());
