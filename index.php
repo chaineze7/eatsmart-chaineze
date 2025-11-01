@@ -87,13 +87,23 @@ if (empty($_GET["page"])) {
                     break;
                 case "PUT":
                     if (isset($url[1])) {
-                    $data = json_decode(file_get_contents("php://input"),true);
-                    $categorieController->updateCategorie($url[1],$data);
-                    echo json_encode($data);
+                        $data = json_decode(file_get_contents("php://input"),true);
+                        $categorieController->updateCategorie($url[1],$data);
+                        echo json_encode($data);
+                    } else {
+                        http_response_code(400);
+                        echo json_encode(["message"=> "ID de la categorie manquant dans l'URL"]);
+                    }
+                    break;
+                case "DELETE":
+                    if (isset($url[1])) {
+                    $categorieController->deleteCategorie($url[1]);
                 } else {
                     http_response_code(400);
                     echo json_encode(["message"=> "ID de la categorie manquant dans l'URL"]);
                 }
+                break;
+
                 
             }
             break;

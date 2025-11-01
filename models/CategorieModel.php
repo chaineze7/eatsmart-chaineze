@@ -84,6 +84,22 @@ class CategorieModel
         
     }
 
+    public function deleteDBCategorie($id) {
+        $req ="DELETE FROM categorie
+               WHERE id_categorie = :id";
+            
+        $stmt = $this->pdo->prepare($req);
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+
+       // Vérifie si une ligne a été modifiée
+       return $stmt->rowCount() > 0;
+        
+    }
+
 }
 //$categorieModel = new CategorieModel();
 //print_r($categorieModel->getDBAllCategories());

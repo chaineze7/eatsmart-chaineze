@@ -46,6 +46,16 @@ class CategorieController
 
     
     }
+
+    public function deleteCategorie($id) {
+      $success=$this->model->deleteDBCategorie($id);
+       if ($success) {
+            http_response_code(204);
+        } else {
+            http_response_code(404);
+            echo json_encode(["messge" => "Categorie introuvable"]);
+        }  
+    }
 }
 //$categorieController = new CategorieController();
 //$categorieController->getAllCategories();
