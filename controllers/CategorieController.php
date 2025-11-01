@@ -34,6 +34,18 @@ class CategorieController
         http_response_code(201);
         echo json_encode($ligneCategorie);
     }
+
+    public function updateCategorie($id,$data) {
+        $success=$this->model->updateDBCategorie($id, $data);
+        if ($success) {
+            http_response_code(204);
+        } else {
+            http_response_code(404);
+            echo json_encode(["messge" => "Categorie non trouvé ou non modifié"]);
+        }
+
+    
+    }
 }
 //$categorieController = new CategorieController();
 //$categorieController->getAllCategories();
