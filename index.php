@@ -29,7 +29,7 @@ if (empty($_GET["page"])) {
     switch($url[0]) {
         case "articles" : 
             // Si un second segment est présent (ex: un ID), on l’utilise
-            if (isset($url[0])) {
+            if (isset($url[1])) {
                 if (isset($url[2]) && $url[2]=="commandes") {
                     $articleController->getCommandesByArticleById($url[1]);
                 } else {
