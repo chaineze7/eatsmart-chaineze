@@ -45,6 +45,18 @@ class ArticleController
         }  
     }
 
+    public function updateArticle($id,$data) {
+        $success=$this->model->updateDBArticle($id, $data);
+        if ($success) {
+            http_response_code(204);
+        } else {
+            http_response_code(404);
+            echo json_encode(["messge" => "Article non trouvé ou non modifié"]);
+        }
+
+    
+    }
+
 }
 //$articleController = new ArticleController();
 //$articleController->getAllArticles();
