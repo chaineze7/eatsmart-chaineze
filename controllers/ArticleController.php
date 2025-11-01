@@ -28,6 +28,13 @@ class ArticleController
         $commandes = $this->model->getDBCommandesByArticleById($idArticle);
         echo  json_encode($commandes);
     }
+
+    public function createArticle($data) {
+        $ligneArticle = $this->model->createDBArticle($data);
+        http_response_code(201);
+        echo json_encode($ligneArticle);
+    }
+
 }
 //$articleController = new ArticleController();
 //$articleController->getAllArticles();

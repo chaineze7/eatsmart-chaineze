@@ -21,27 +21,35 @@ if (empty($_GET["page"])) {
     // On découpe cette chaîne en segments, en séparant sur le caractère "/"
     // Cela donne un tableau, ex : ["chauffeurs", "3"]
     $url = explode("/", $_GET['page']);
+    $method = $_SERVER["REQUEST_METHOD"];
     
     // Affiche le contenu du tableau pour vérifier comment l’URL est interprétée
     //print_r($url);
 
     // On teste le premier segment pour déterminer la ressource demandée
     switch($url[0]) {
-        case "articles" : 
-            // Si un second segment est présent (ex: un ID), on l’utilise
-            if (isset($url[1])) {
-                if (isset($url[2]) && $url[2]=="commandes") {
-                    $articleController->getCommandesByArticleById($url[1]);
-                } else {
-                    // Exemple : /articles/3 → affiche les infos de l'article 3
-                    $articleController->getArticleById($url[1]);
-                }
-            } else {
-                // Sinon, on affiche tous les articles
-                echo  $articleController->getAllArticles();
-                
-            }
+        case "articles" :
+            switch ($method) {
+                case "GET":
+                    if (isset($url[1])) {
+                        if (isset($url[2]) && $url[2]=="commandes") {
+                            $articleController->getCommandesByArticleById($url[1]);
+                        } else {
+                            $articleController->getArticleById($url[1]);
+                        }
+                    } else {
+                        // Sinon, on affiche tous les articles
+                        echo  $articleController->getAllArticles();
+                    }
+                    break;  
+                case "POST":
+                    $data = json_decode(file_get_contents("php://input"),true);
+                    $articleController->createArticle($data);
+                    break;
+
+            } 
             break;
+            
         case "categories":
             if (isset($url[0])) {
                 if (isset($url[2]) && $url[2]=="articles") {
