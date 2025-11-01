@@ -47,6 +47,46 @@ class CommandeModel
         $commande = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $commande;
     }
+
+    public function createDBCommande($data) {
+
+        // commande
+        $req1 = "INSERT INTO commande (id_commande, date_commande, prix_total, etat)
+            VALUES (:id_commande, :date_commande, :prix_total, :etat)";
+
+        
+        $stmtCommande = $this->pdo->prepare($req1);
+
+        $stmtCommande->bindParam(":id_commande", $data['id_commande'], PDO::PARAM_INT);
+        $stmtCommande->bindParam(":date_commande", $data['date_commande'], PDO::PARAM_STR);
+        $stmtCommande->bindParam(":prix_total", $data['prix_total'], PDO::PARAM_INT);
+        $stmtCommande->bindParam(":etat", $data['etat'], PDO::PARAM_STR);
+        
+        $stmtCommande->execute();
+
+        //article
+
+        $req2 = "INSERT INTO assoc_article_commande (id_article, id_commande, quantite_article)
+            VALUES (:id_article, :id_commande, :quantite_article)";
+
+        $stmtArticle = $this->pdo->prepare($req2);
+
+        foreach ($data['articles'] as $article) {
+            $stmtArticle->bindParam(":id_article", $article['id_article'], PDO::PARAM_INT);
+            $stmtArticle->bindParam(":id_commande", $data['id_commande'], PDO::PARAM_INT);
+            $stmtArticle->bindParam(":quantite_article", $article['quantite_article'], PDO::PARAM_STR);
+            $stmtArticle->execute();
+        }
+        
+
+        
+
+        $commande = $this->getDBCommandeById($data['id_commande']);
+
+
+
+        return $commande;
+    }
 }
 //$commandeModel = new CommandeModel();
 //print_r($commandeModel->getDBAllCommandes());
