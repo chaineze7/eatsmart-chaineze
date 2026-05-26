@@ -1,5 +1,5 @@
 <?php
-
+// Gère les requetes SQL des catégories
 class CategorieModel
 {
     private $pdo;
@@ -14,12 +14,14 @@ class CategorieModel
         }
     }
 
+    // Rècupère toutes mes catégories
     public function  getDBAllCategories()
     {
         $stmt = $this->pdo->query("SELECT * FROM categorie");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Rècupère une catégorie par l'ID
     public function getDBCategorieById ($idCategorie)
     {
         $req = "
@@ -32,7 +34,7 @@ class CategorieModel
         $categorie = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $categorie;
     }
-
+    // Rècupère les articles d'une catégorie
     public function getBDArticlesByCategorieById ($idCategorie)
     {
         $req = "
@@ -47,6 +49,7 @@ class CategorieModel
         
     }
 
+    // Crée une catégorie
     public function createDBCategorie($data) {
         $req = "INSERT INTO categorie (id_categorie, nom)
             VALUES (:id_categorie, :nom)";
@@ -65,6 +68,7 @@ class CategorieModel
         return $categorie;
     }
 
+    // Modifier catégorie
     public function updateDBCategorie($id,$data) {
         $req ="UPDATE categorie
                SET id_categorie = :id_categorie, nom = :nom
@@ -83,7 +87,7 @@ class CategorieModel
        return $stmt->rowCount() > 0;
         
     }
-
+    // Supprimer catégorie
     public function deleteDBCategorie($id) {
         $req ="DELETE FROM categorie
                WHERE id_categorie = :id";

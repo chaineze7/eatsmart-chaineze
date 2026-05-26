@@ -1,5 +1,6 @@
 <?php
 
+// Gére les commandes + relation articles
 class CommandeModel
 {
     private $pdo;
@@ -14,12 +15,14 @@ class CommandeModel
         }
     }
 
+    // Rècupère toutes les commandes
     public function getDBAllCommandes()
     {
         $stmt = $this->pdo->query("SELECT * FROM commande");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Rècupère une commande par l'ID
     public function getDBCommandeById ($idCommande)
     {
         $req = "
@@ -33,6 +36,7 @@ class CommandeModel
         return $commande;
     }
 
+    // Rècupère les articles d'une commande 
     public function getBDArticlesByCommandeById($idCommande)
     {
         $req = "
@@ -48,9 +52,10 @@ class CommandeModel
         return $commande;
     }
 
+    // Création commande
     public function createDBCommande($data) {
 
-        // commande
+        // commande principale
         $req1 = "INSERT INTO commande (id_commande, date_commande, prix_total, etat)
             VALUES (:id_commande, :date_commande, :prix_total, :etat)";
 
@@ -64,7 +69,7 @@ class CommandeModel
         
         $stmtCommande->execute();
 
-        //article
+        // relation articles commande
 
         $req2 = "INSERT INTO assoc_article_commande (id_article, id_commande, quantite_article)
             VALUES (:id_article, :id_commande, :quantite_article)";
@@ -80,7 +85,7 @@ class CommandeModel
         
 
         
-
+        // Retour commande crée
         $commande = $this->getDBCommandeById($data['id_commande']);
 
 

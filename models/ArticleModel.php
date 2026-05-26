@@ -1,5 +1,5 @@
 <?php
-
+// Gère toutes les requetes SQL liées aux articles
 class ArticleModel
 {
     private $pdo;
@@ -7,6 +7,7 @@ class ArticleModel
     public function __construct()
     {
         try {
+            // Connexion à la base de données MySQL avec PDO
             $this->pdo = new PDO("mysql:host=localhost;dbname=eatsmart_bdd_bruno;charset=utf8", "root", "");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -14,12 +15,14 @@ class ArticleModel
         }
     }
 
+    // Récupère tous les articles
     public function getDBAllArticles()
     {
         $stmt = $this->pdo->query("SELECT * FROM article");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Récupère un article par ID
     public function getDBArticleById ($idArticle)
     {
         $req = "
@@ -33,6 +36,7 @@ class ArticleModel
         return $article;
     }
 
+    // Récupère les commandes d'un article 
     public function getDBCommandesByArticleById($idArticle)
     {
         $req = "
@@ -48,6 +52,7 @@ class ArticleModel
         return $article;
     }
 
+    // Création d'un article
     public function createDBArticle($data) {
         $req = "INSERT INTO article (id_article, nom, prix, description, id_categorie)
             VALUES (:id_article, :nom, :prix, :description, :id_categorie)";
@@ -68,6 +73,7 @@ class ArticleModel
         return $article;
     }
 
+    // Suppression d'un article
     public function deleteDBArticle($id) {
         $req ="DELETE FROM article
                WHERE id_article = :id";
@@ -84,6 +90,7 @@ class ArticleModel
         
     }
 
+    // Modifier d'un article 
     public function updateDBArticle($id,$data) {
         $req = "UPDATE article 
                 SET id_article = :id_article, nom = :nom, prix = :prix, description = :description, id_categorie = :id_categorie

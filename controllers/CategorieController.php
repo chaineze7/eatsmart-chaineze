@@ -2,6 +2,7 @@
 
 require_once "models/CategorieModel.php";
 
+// Controleur des catégories
 class CategorieController
 {
     private $model;
@@ -11,12 +12,14 @@ class CategorieController
         $this->model = new CategorieModel();
     }
 
+    // Récupère toutes les catégories
     public function getAllCategories()
     {
         $categories = $this->model->getDBAllCategories();
         echo json_encode($categories);
     }
 
+    // Récupère une catégorie par son ID
     public function getCategorieById($idCategorie)
     {
         $lignesCategorie = $this->model->getDBCategorieById($idCategorie);
@@ -29,12 +32,14 @@ class CategorieController
         echo json_encode($articles);    
     }
 
+    // Création  catégorie
     public function createCategorie($data) {
         $ligneCategorie = $this->model->createDBCategorie($data);
         http_response_code(201);
         echo json_encode($ligneCategorie);
     }
 
+    // Modification catégorie
     public function updateCategorie($id,$data) {
         $success=$this->model->updateDBCategorie($id, $data);
         if ($success) {
@@ -47,6 +52,7 @@ class CategorieController
     
     }
 
+    // Suppression catégorie
     public function deleteCategorie($id) {
       $success=$this->model->deleteDBCategorie($id);
        if ($success) {
